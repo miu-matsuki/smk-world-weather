@@ -92,10 +92,14 @@ import TemperatureToggle from '../components/TemperatureToggle.astro';
       city?.city ?? 'Current Location',
       city?.countrycode ?? '',
     );
+    // end loading page
+    window.dispatchEvent(new Event('appReady'));
   }
 
   // Load Vancouver as the default weather
   function fallback() {
+    // end loading page
+    window.dispatchEvent(new Event('appReady'));
     loadWeather(
       currentCoords.latitude,
       currentCoords.longitude,
